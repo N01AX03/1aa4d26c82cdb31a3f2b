@@ -6,12 +6,13 @@ var MODE = 0;
 
 
 var animacio;
+var animacio_2;
 
 function preload() {
   //CREAR UNA ANIMACIO A PARTIR D'UNA SERIE D'IMATGES
   //EL NOM DELS ARXIUS ES MOOOOOLT IMPORTANT
   animacio = loadAnimation("libraries/0001.png", "libraries/0030.png");
-  //animacio = loadAnimation("imatge0000.png", "assets/imatge0015.png");
+  animacio_2 = loadAnimation("libraries/asterisk_circle0000.png", "libraries/asterisk_circle0014.png");
 }
 
 // [SETUP] S'EXECUTA UN COP AL PRINCIPI
@@ -83,5 +84,6 @@ function draw() {
 
   // PINTA EL FRAME QUE TOCA
   animation(animacio, mouseX, mouseY, );
-  
+  animation(animacio_2, mouseX, mouseX, );
+
 }
