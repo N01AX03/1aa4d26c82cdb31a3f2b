@@ -10,7 +10,7 @@ var animacio;
 function preload() {
   //CREAR UNA ANIMACIO A PARTIR D'UNA SERIE D'IMATGES
   //EL NOM DELS ARXIUS ES MOOOOOLT IMPORTANT
-  animacio = loadAnimation("libraries/asterisk_circle0000.png", "libraries/asterisk_circle0014.png");
+  animacio = loadAnimation("libraries/0001.png", "libraries/0030.png");
   //animacio = loadAnimation("imatge0000.png", "assets/imatge0015.png");
 }
 
@@ -75,11 +75,13 @@ function draw() {
   else if (MODE == 5){
 
     animacio.changeFrame(constrain(floor(map(mouseX, 0, width, 0, animacio.getLastFrame())),0,animacio.getLastFrame()));
+
   }
   //////////////////////////////
 
 
 
   // PINTA EL FRAME QUE TOCA
-  animation(animacio, mouseX, mouseY, 800, 800);
+  animation(animacio, mouseX, mouseY, );
+  
 }
