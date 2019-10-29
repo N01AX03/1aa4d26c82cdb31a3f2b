@@ -23,30 +23,31 @@ function setup() {
 
 }
 
-function mouseMoved(){
-
-  var i = 0, select=0;
-  while (i<5)  {
-   select = floor(random(0,1) *2);
-  //  fill((255), (255), (255));
-  //  textSize(random(12,17));
-  // text(random(["a"]), random(0, 5), random(0, windowHeight));
 
 
-   image(landscape, random(0, windowWidth), random(0, windowHeight));
-
-   image(amor, random(0, windowWidth), random(0, windowHeight));
 
 
-   i++;
-  }
-
- }
 
 function draw() {
   clear()
   gif_createImg.position(mouseX/1.2, mouseY/1.2);
 
+
+    var i = 0, select=0;
+    while (i<1)  {
+     select = floor(random(0,1) *2);
+    //  fill((255), (255), (255));
+    //  textSize(random(12,17));
+    // text(random(["a"]), random(0, 5), random(0, windowHeight));
+
+
+     image(landscape, random(0, windowWidth), random(0, windowHeight));
+
+     image(amor, random(0, windowWidth), random(0, windowHeight));
+
+
+     i++;
+    }
 
 
 
