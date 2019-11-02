@@ -1,4 +1,3 @@
-
 var canvas;
 let xeno ;
 var obstacles;
@@ -32,7 +31,7 @@ var sadboys;
     //xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn', 'jenj','lizard','dragon','acid','cyberdemon']));
     xeno.changeAnimation(random(['spider','cyberdemon']));
 //drugs
-drugs = createSprite(200, 200);
+drugs = createSprite(random(0, windowHeight), random(0, windowWidth),50,50);;
   drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
 
   drugs.mouseActive = true;
@@ -149,7 +148,7 @@ for(var i=0; i<2; i++)
 function draw() {
 //on/off
 
-k = background(0)
+//background(0)
 
 
  xeno.velocity.x = (mouseX-xeno.position.x)*0.2; //mouse position
@@ -159,9 +158,34 @@ k = background(0)
  xeno.displace(obstacles);
  xeno.collide(collide);
  obstacles.displace(collide);
- if(drugs.mouseIsOver)
+
+ if(drugs.mouseIsOver ){
 
     drugs.rotation-= 10;
+    drugs.scale=1.5;
+
+    // var bola = createSprite(random(0, width), random(0, height),20,20);
+    // bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
+    // obstacles.add(bola);
+
+}else {
+  drugs.scale=0.5
+  drugs.rotation=0
+}
+
+ if(drugs.mouseIsPressed ){
+
+    drugs.rotation-= 10;
+    drugs.remove()
+    drugs
+
+    //  var bola = createSprite(random(0, width), random(0, height),20,20);
+    // bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
+    // obstacles.add(bola);
+    //  bola.life = 40;
+}else {
+  background(0)
+}
 
   //drugs.visible = !drugs.mouseIsPressed;
 
@@ -171,14 +195,17 @@ k = background(0)
 
 if (mouseIsPressed) {
 //xeno.rotation -= 2;
-if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
-    let fs = fullscreen();
-    fullscreen(!fs);
-  }
+
 xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
 
 
 }
+
+// else {
+//
+// background(0)
+//
+// }
 
 
 
