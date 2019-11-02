@@ -178,12 +178,13 @@ function draw() {
 
     drugs.rotation-= 10;
     drugs.remove()
-    drugs
+    xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
 
-    //  var bola = createSprite(random(0, width), random(0, height),20,20);
-    // bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
-    // obstacles.add(bola);
-    //  bola.life = 40;
+
+      var bola = createSprite(random(0, width), random(0, height),20,20);
+     bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
+     obstacles.add(bola);
+      bola.life = 40;
 }else {
   background(0)
 }
@@ -191,7 +192,6 @@ function draw() {
   //drugs.visible = !drugs.mouseIsPressed;
 
   drawSprites();
-
 
 
 if (mouseIsPressed) {
