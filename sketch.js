@@ -3,10 +3,15 @@ var canvas;
 let xeno ;
 var obstacles;
 var drugs;
-var sadboys;
+var song;
+
 
 
   function preload() {
+
+song = loadSound('libraries/song.mp3');
+song2 = loadSound('libraries/sound.mp3')
+
 
 //MOUSE AVATAR:
     xeno = createSprite(400,200);
@@ -34,8 +39,13 @@ var sadboys;
 //drugs
 drugs = createSprite(random(0, windowHeight), random(0, windowWidth),50,50);;
   drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
-
   drugs.mouseActive = true;
+  drugs.scale=0.5
+
+ mdma = createSprite(windowWidth/2,windowHeight/2,50,50);;
+     mdma.addAnimation('normal', 'libraries/background/speaker/0001.png', 'libraries/background/speaker/0009.png');
+     mdma.mouseActive = true;
+
 
 
 }
@@ -44,8 +54,9 @@ function setup() {
 
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0)
-  background(50)
+  //background(0)
 
+  //song.loop();
   frameRate(30);
 
 //BACKGROUND:
@@ -149,7 +160,8 @@ for(var i=0; i<2; i++)
 function draw() {
 //on/off
 
-//background(0)
+
+
 
 
  xeno.velocity.x = (mouseX-xeno.position.x)*0.2; //mouse position
@@ -160,47 +172,94 @@ function draw() {
  xeno.collide(collide);
  obstacles.displace(collide);
 
+// DROGUES MOUSE OVER
  if(drugs.mouseIsOver ){
 
     drugs.rotation-= 10;
-    drugs.scale=1.5;
-
-    // var bola = createSprite(random(0, width), random(0, height),20,20);
-    // bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
-    // obstacles.add(bola);
+    drugs.scale=0.7;
 
 }else {
   drugs.scale=0.5
   drugs.rotation=0
 }
 
+
+// EFECECTES DE LA DROGA :
+//hardcore:
  if(drugs.mouseIsPressed ){
 
-    drugs.rotation-= 10;
-    drugs.remove()
-    drugs
 
-    //  var bola = createSprite(random(0, width), random(0, height),20,20);
-    // bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
-    // obstacles.add(bola);
-    //  bola.life = 40;
-}else {
+   //song2.play();
+
+   background(random(0,255),random(0,255),random(0,255))
+    xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
+   //  drugs.rotation-= 10;
+     drugs.remove()
+
+     drugs = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+       drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
+       drugs.mouseActive = true;
+       drugs.scale=0.5
+
+       for(var i=0; i<20; i++)
+       {
+        explosion = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+         explosion.addAnimation('normal', 'libraries/explosion/0001.png', 'libraries/explosion/0019.png');
+
+         explosion.life=50
+}
+   //
+   //  kok = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+   //    kok.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
+   //   obstacles.add(kok);
+   //    kok.life =100;
+   //    kok.rotation-=10;
+}else{
+
+}
+
+
+
+
+
+if (mdma.mouseIsOver){
+  mdma.scale=0.7;
+}else{
+
+mdma.scale=1;
+}
+
+if(mdma.mouseIsPressed ){
+
+  mdma.rotation-= 10;
+      mdma.remove()
+      //xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
+
+
+       //  var bola = createSprite(random(0, width), random(0, height),20,20);
+       // bola.addAnimation('normal', 'libraries/obstacles/bola/0001.png', 'libraries/obstacles/bola/0015.png');
+       // obstacles.add(bola);
+       //  bola.life = 40;
+  //song2.play();
+
+  //background(random(0,255),random(0,255),random(0,255))
+//   xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
+  //  drugs.rotation-= 10;
+
+
+}else{
   background(0)
 }
+// if (mouseIsPressed) {}else{
+//   background(0)
+// }
 
-  //drugs.visible = !drugs.mouseIsPressed;
-
-  drawSprites();
-
-
-
-if (mouseIsPressed) {
 //xeno.rotation -= 2;
 
-xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
+//xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
 
 
-}
+
 
 // else {
 //
@@ -215,6 +274,8 @@ xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva',
 
 drawSprites()
 drawSprite(xeno)
+drawSprite(drugs)
+drawSprite(mdma)
 }
 
 
