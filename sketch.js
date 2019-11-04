@@ -12,6 +12,9 @@ var song;
 
 song = loadSound('libraries/song.mp3');
 song2 = loadSound('libraries/sound.mp3');
+song3 = loadSound('libraries/song3.mp3')
+song4 = loadSound('libraries/song4.mp3')
+song5 = loadSound('libraries/sound5.mp3')
 
 
 
@@ -39,24 +42,36 @@ song2 = loadSound('libraries/sound.mp3');
     //xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn', 'jenj','lizard','dragon','acid','cyberdemon']));
     xeno.changeAnimation(random(['spider','cyberdemon']));
 //drugs
-drugs = createSprite(random(0, windowHeight), random(0, windowWidth),50,50);;
+drugs = createSprite(random(50, windowWidth*0.9), random(50, windowHeight*0.9),50,50);;
   drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
   drugs.mouseActive = true;
   drugs.scale=0.5
 
 
- mdma = createSprite(random(0, windowHeight), random(0, windowWidth),50,50);
-    //createSprite(random(0, windowHeight), random(0, windowWidth),50,50);;
+mdma = createSprite(random(50, windowWidth*0.9), random(50, windowHeight*0.9),50,50);;
+    //createSprite(random(0, windowHeight*0.9), random(0, windowWidth*0.9),50,50);;
      mdma.addAnimation('normal', 'libraries/mdma/0001.png', 'libraries/mdma/0016.png');
      mdma.mouseActive = true;
 
+mdma2 = createSprite(random(50, windowWidth*0.9), random(50, windowHeight*0.9),50,50);;
+        //createSprite(random(0, windowHeight*0.9), random(0, windowWidth*0.9),50,50);;
+         mdma2.addAnimation('normal', 'libraries/mdma/0001.png', 'libraries/mdma/0016.png');
+         mdma2.mouseActive = true;
 
 
 
-speed = createSprite(random(0, windowHeight), random(0, windowWidth),50,50);;
+
+speed = createSprite(random(50, windowWidth*0.9), random(50, windowHeight*0.9),50,50);;
          speed.addAnimation('normal', 'libraries/speed/0001.png', 'libraries/speed/0028.png');
          speed.mouseActive = true;
-         speed.life=1
+
+speed2 = createSprite(random(50, windowWidth*0.9), random(50, windowHeight*0.9),50,50);
+         speed2.addAnimation('normal', 'libraries/speed/0001.png', 'libraries/speed/0028.png');
+         speed2.mouseActive = true;
+
+
+
+//otros objetos
 
 door = createSprite(windowWidth/2,windowHeight/2,50,50);;
                   door.addAnimation('normal', 'libraries/door/0006.png', 'libraries/door/0006.png');
@@ -76,9 +91,11 @@ function setup() {
 
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0)
-  //background(0)
 
-  song.loop();
+
+  //background(0)
+  song5.play();
+  song3.loop();
   frameRate(30);
 
 //BACKGROUND:
@@ -94,7 +111,7 @@ for(var i=0; i<100; i++)
   // bstar.addAnimation('normal', 'libraries/bstar/0001.png', 'libraries/bstar/0001.png');
   // star.add(bstar);
   var bstar = createSprite(random(0, width), random(0, height),2,2);
-  
+
   star.add(bstar);
 
 
@@ -229,7 +246,7 @@ function draw() {
  if(drugs.mouseIsPressed ){
 
 
-   song2.play();
+   song4.play();
 
 
    background(random(0,255),random(0,255),random(0,255))
@@ -238,7 +255,7 @@ function draw() {
      drugs.remove()
 
 
-     drugs = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+     drugs = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
        drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
        drugs.mouseActive = true;
        drugs.scale=0.5
@@ -247,10 +264,7 @@ function draw() {
 
 
 
-      speed = createSprite(random(0, windowHeight), random(0, windowWidth),50,50);;
-            speed.addAnimation('normal', 'libraries/speed/0001.png', 'libraries/speed/0028.png');
-            speed.mouseActive = true;
-            speed.life=200
+
 
 
 
@@ -299,14 +313,79 @@ if(mdma.mouseIsPressed ){
 
 
       mdma.remove()
+      mdma2.visible=true;
 
 
 }else{
   background(0)
+  mdma2.visible=false;
 
 
 }
 
+
+
+if (mdma2.mouseIsOver){
+  mdma2.scale=0.7;
+    mdma2.rotation-= 10;
+}else{
+
+mdma2.scale=0.6;
+}
+
+if(mdma2.mouseIsPressed ){
+
+
+  song2.play();
+
+
+  background(0)
+
+  //  drugs.rotation-= 10;
+    drugs.remove()
+    mdma2.remove()
+
+    mdma = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
+      mdma.addAnimation('normal', 'libraries/mdma/0001.png', 'libraries/mdma/0016.png');
+      mdma.mouseActive = true;
+      mdma.scale=0.6
+
+      mdma2 = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
+        mdma2.addAnimation('normal',  'libraries/mdma/0001.png', 'libraries/mdma/0016.png');
+        mdma2.mouseActive = true;
+        mdma2.scale=0.7
+
+      drugs = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
+        drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
+        drugs.mouseActive = true;
+        drugs.scale=0.5
+
+
+
+      for(var i=0; i<20; i++)
+      {
+        var barril = createSprite(random(0, width), random(0, height),20,20);
+
+        barril.addAnimation('normal', 'libraries/mdma/0001.png', 'libraries/mdma/0016.png');
+        obstacles.add(barril);
+        barril.life=100
+        barril.scale=0.7
+
+       explosion = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+        explosion.addAnimation('normal', 'libraries/explosion/0001.png', 'libraries/explosion/0019.png');
+
+        explosion.life=50
+}
+  //
+  //  kok = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+  //    kok.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
+  //   obstacles.add(kok);
+  //    kok.life =100;
+  //    kok.rotation-=10;
+}else{
+
+
+}
 
 
 
@@ -318,28 +397,103 @@ if (speed.mouseIsOver){
   speed.scale=0.8;
   speed.rotation-= 10;
 }else{
-
-
 speed.scale=0.7;
 }
 
 if(speed.mouseIsPressed ){
-
- if (mouseIsPressed){
+if(mouseIsPressed){
 
 }else{
   xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
 
 }
 
-speed.remove()
+speed2.visible=true;
 
+
+speed.remove()
 
 
 }else{
 
+speed2.visible=false;
+}
+
+
+//antispeed
+if (speed2.mouseIsOver){
+  speed2.scale=0.8;
+  speed2.rotation-= 10;
+}else{
+speed2.scale=0.7;
+}
+if(speed2.mouseIsPressed ){
+
+
+  song5.play();
+
+
+  background(random(0,255),random(0,255),random(0,255))
+   xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
+  //  drugs.rotation-= 10;
+    drugs.remove()
+    speed2.remove()
+
+    speed = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
+      speed.addAnimation('normal', 'libraries/speed/0001.png', 'libraries/speed/0028.png');
+      speed.mouseActive = true;
+      speed.scale=0.7
+
+      speed2 = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
+        speed2.addAnimation('normal', 'libraries/speed/0001.png', 'libraries/speed/0028.png');
+        speed2.mouseActive = true;
+        speed2.scale=0.7
+
+      drugs = createSprite(random(200, width*0.9), random(100, height*0.9),50,50);;
+        drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
+        drugs.mouseActive = true;
+        drugs.scale=0.5
+
+
+
+
+
+
+
+
+
+      for(var i=0; i<20; i++)
+      {
+        var barril = createSprite(random(0, width), random(0, height),20,20);
+
+        barril.addAnimation('normal', 'libraries/speed/0001.png', 'libraries/speed/0028.png');
+        obstacles.add(barril);
+        barril.life=100
+        barril.scale=0.7
+
+       explosion = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+        explosion.addAnimation('normal', 'libraries/explosion/0001.png', 'libraries/explosion/0019.png');
+
+        explosion.life=50
+}
+  //
+  //  kok = createSprite(random(0, windowWidth), random(0, windowHeight),50,50);;
+  //    kok.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0039.png');
+  //   obstacles.add(kok);
+  //    kok.life =100;
+  //    kok.rotation-=10;
+}else{
+
 
 }
+
+
+
+
+
+
+
+
 
 if (door.mouseIsOver){
 
@@ -360,12 +514,15 @@ if(door.mouseIsPressed ){
   drawSprite(xeno)
   drawSprite(drugs)
   drawSprite(mdma)
+  drawSprite(mdma2)
   drawSprite(speed)
+  drawSprite(speed2)
   drawSprite(door)
 
 
 door.remove()
-song.setVolume(1)
+song3.setVolume(1)
+song5.setVolume(1)
 
 
 
@@ -374,7 +531,8 @@ song.setVolume(1)
 
 drawSprite(door)
 drawSprite(xeno)
-song.setVolume(0.2)
+song3.setVolume(0.1)
+song5.setVolume(0.1)
 
 
 }
@@ -396,16 +554,7 @@ location.reload();
 
 
 
-if (mouseIsPressed) {
 
-  mdma.visible = true;
-
-
-}else{
-
-  mdma.visible = false;
-
-}
 
 
 //   background(0)
