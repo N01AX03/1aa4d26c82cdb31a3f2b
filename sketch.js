@@ -67,7 +67,7 @@ song5 = loadSound('libraries/sound5.mp3')
 
     //initial random character:
     //xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn', 'jenj','lizard','dragon','acid','cyberdemon']));
-      xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
+      xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
 //drugs
 drugs = createSprite(random(50, windowWidth*0.9), random(50, windowHeight*0.9),50,50);;
   drugs.addAnimation('normal', 'libraries/drugs/0001.png', 'libraries/drugs/0001.png');
@@ -379,7 +379,7 @@ function draw() {
 
 
    background(random(0,255),random(0,255),random(0,255))
-    xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','cuc','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
+    xeno.changeAnimation(random(['xeno','mage','dancing','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
    //  drugs.rotation-= 10;
      drugs.remove()
 
@@ -440,7 +440,7 @@ mdma.scale=0.5;
 if(mdma.mouseIsPressed ){
 
   if(mouseIsPressed){
-    xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
+    xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
     song2.play();
   }
 
@@ -543,7 +543,7 @@ if(mouseIsPressed){
   song5.play();
 
 }else{
-xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
+xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','acid','cyberdemon','drac','uzo','drac2','school','mag','robot_ull','gatet','folk','fada','fada','fada2','fada3','fada4','fada5','sirena','grifo','grifo2','caps','pegasus','mag2','office','bb','bb2','cdemon','cdemon2','japo','applause','ninia']));
 }
 
 speed2.visible=true;
@@ -572,7 +572,7 @@ if(speed2.mouseIsPressed ){
 
 
   background(random(0,255),random(0,255),random(0,255))
-   xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','dragon','acid','cyberdemon']));
+   xeno.changeAnimation(random(['xeno','mage','kitana','nakrul','sheeva','ko','gat','spider','sonic','unicorn','jenj','lizard','acid','cyberdemon']));
   //  drugs.rotation-= 10;
     drugs.remove()
     speed2.remove()
