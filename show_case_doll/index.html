@@ -19,8 +19,8 @@
 
   body {
     margin: 0;
-    font-family: Arial;
-    font-size: 17px;
+    font-size: 25px;
+		cursor: url(concepte/cursor.cur), pointer;
   }
 
   #myVideo {
@@ -31,16 +31,41 @@
     min-height: 100%;
   }
 
-	a {
-	osition:absolute; z-index:2; right:10px; top:30px;position:absolute; z-index:3;
+	ul {
+	position:absolute; z-index:2; right:25px; top:30px;position:absolute; z-index:3;
+text-align: right;
+ list-style-type: none;
 	}
+
+	li {
+		margin-bottom: 10px;
+	}
+
+	a {
+
+		  color: red;
+			text-decoration: none;
+
+	}
+	a:hover {
+  color: green;
+}
 
   </style>
 
 </head>
 
 <body>
-<a href="#">HOLA</a>
+<ul>
+	<li><a href="concepte/concepto.html">CONCEPTO</a> </li>
+		<li><a href="#">MOODBOARDS</a> </li>
+			<li><a href="#">FICTICIOS</a> </li>
+				<li><a href="#">PLANOS // FICHAS TÉCNICAS</a> </li>
+					<li><a href="#">PROCESO</a> </li>
+						<li><a href="#">IMAGEN CORPORATIVA</a> </li>
+						<li><a href="#">LOOK BOOK // EDITORIAL</a> </li>
+						<li><a href="#">VÍDEO</a> </li>
+</ul>
   <video autoplay muted loop id="myVideo">
     <source src="assets/video.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
