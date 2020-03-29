@@ -38,7 +38,7 @@ function keyPressed() {
 }
 
 function draw() {
-
+clear();
   logo_a.attractionPoint(0.1, mouseX, mouseY);
  logo_a.maxSpeed = 10;
 
