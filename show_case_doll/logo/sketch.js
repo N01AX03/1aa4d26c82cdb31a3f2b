@@ -5,11 +5,14 @@ var logo_a, logo_b, logo_c, logo_d, logo_e, logo_f;
 
 function preload() {
 
-  logo_a = createSprite(600, 200, 50, 100);
+
+    logo_f = createSprite(600, 200, 50, 100);
   logo_b = createSprite(600, 200, 50, 100);
+    logo_d = createSprite(600, 200, 50, 100);
   logo_c = createSprite(600, 200, 50, 100);
-  logo_d = createSprite(600, 200, 50, 100);
-  logo_f = createSprite(600, 200, 50, 100);
+    logo_a = createSprite(600, 200, 50, 100);
+
+
   logo_e = createSprite(600, 200, 50, 100);
 
   logo_a.addAnimation('floating', 'assets/logo_a_000001.png', 'assets/logo_a_000100.png');
@@ -39,13 +42,13 @@ function keyPressed() {
 
 function draw() {
 clear();
-  logo_a.attractionPoint(0.1, mouseX, mouseY);
- logo_a.maxSpeed = 10;
+  logo_a.attractionPoint(0.2, mouseX, mouseY);
+ logo_a.maxSpeed = 8;
 
  logo_b.attractionPoint(0.3, mouseX, mouseY);
 logo_b.maxSpeed = 8;
 
-logo_c.attractionPoint(0.1, mouseX, mouseY);
+logo_c.attractionPoint(0.2, mouseX, mouseY);
 logo_c.maxSpeed = 5;
 
 logo_d.attractionPoint(0.1, mouseX, mouseY);
