@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery WebGL Ripples</title>
+<style>
+* { margin: 0; padding: 0; }
+html {
+	height: 100%;
+}
+body {
+	color: #fff;
+	font-size: 60px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+background-image: url(demo1/img/captura4.png);
+	background-size: cover;
+	background-position: 50% 0;
+	height: 100%;
+	text-align: center;
+
+}
+
+
+
+</style>
+</head>
+<body>
+
+<main>
+	<header>
+
+	</header>
+
+
+	<div class=""> ʂ℘ɛƈɬཞơ℘ơƖıɬıƈʂ̧̨̰̗̬̬̯̥̭̫͑͘̚
+</div>
+	<div class=""> <a href="demo1/index.html"> demo1</a> </div>
+	<div class="">hola</div>
+	<div class="">hola</div>
+	<div class="">hola</div>
+	<div class="">hola</div>
+	<div class="">hola</div>
+	<div class="">hola</div>
+	<div class="">hola</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="jquery.ripples.js"></script>
+<script>
+$(document).ready(function() {
+	try {
+		$('body').ripples({
+			resolution: 700,
+			dropRadius: 15, //px
+			perturbance: 0.04,
+		});
+
+	}
+	catch (e) {
+		$('.error').show().text(e);
+	}
+
+	// Automatic drops
+	setInterval(function() {
+		var $el = $('main');
+		var x = Math.random() * $el.outerWidth();
+		var y = Math.random() * $el.outerHeight();
+		var dropRadius = 15;
+		var strength = 0.07 + Math.random() * 0.04;
+
+		$el.ripples('drop', x, y, dropRadius, strength);
+	}, 400);
+});
+</script>
+</body>
+</html>
