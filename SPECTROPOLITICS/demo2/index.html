@@ -54,7 +54,7 @@ $(document).ready(function() {
 		$('body').ripples({
 			resolution: 700,
 			dropRadius: 15, //px
-			perturbance: 0.04,
+			perturbance: 0.01,
 		});
 
 	}
@@ -68,7 +68,7 @@ $(document).ready(function() {
 		var x = Math.random() * $el.outerWidth();
 		var y = Math.random() * $el.outerHeight();
 		var dropRadius = 15;
-		var strength = 0.07 + Math.random() * 0.04;
+		var strength = 0.03 + Math.random() * 0.01;
 
 		$el.ripples('drop', x, y, dropRadius, strength);
 	}, 400);
