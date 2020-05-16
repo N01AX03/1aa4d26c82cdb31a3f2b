@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery WebGL Ripples</title>
+<style>
+* { margin: 0; padding: 0; }
+html {
+	height: 100%;
+}
+body {
+	color: #fff;
+	font-size: 16px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+background-image: url(img/captura.png);
+	background-size: cover;
+	background-position: 50% 0;
+	height: 100%;
+	text-align: center;
+
+}
+
+img {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+	pointer-events: none;
+
+user-select: none;
+}
+
+.animate{
+			 opacity: 1;
+			 -webkit-transition: opacity 20s linear;
+	 }
+img{opacity: 0}
+
+
+
+</style>
+</head>
+<body>
+	<video autoplay muted loop id="myVideo">
+		<source src="img/video.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+	</video>
+
+<main>
+	<header>
+
+	</header>
+
+<img onload="this.className='animate'" src="img/spectro2.png" alt="">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="jquery.ripples.js"></script>
+<script>
+$(document).ready(function() {
+	try {
+		$('body').ripples({
+			resolution: 700,
+			dropRadius: 15, //px
+			perturbance: 0.01,
+		});
+
+	}
+	catch (e) {
+		$('.error').show().text(e);
+	}
+
+	// Automatic drops
+	setInterval(function() {
+		var $el = $('main');
+		var x = Math.random() * $el.outerWidth();
+		var y = Math.random() * $el.outerHeight();
+		var dropRadius = 15;
+		var strength = 0.03 + Math.random() * 0.01;
+
+		$el.ripples('drop', x, y, dropRadius, strength);
+	}, 400);
+});
+</script>
+</body>
+</html>
